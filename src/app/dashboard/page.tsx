@@ -126,10 +126,10 @@ export default async function DashboardPage() {
             </div>
           </div>
           <Link
-            href="/enterprise?bundle=enterprise"
+            href="/dashboard/partner"
             className="mt-4 inline-block text-sm text-blue-600 hover:underline"
           >
-            分潤條款說明 →
+            查看介紹後台 →
           </Link>
         </div>
       </section>
