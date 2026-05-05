@@ -33,6 +33,12 @@ export default async function Nav() {
           >
             企業
           </Link>
+          <Link
+            href="/about"
+            className="hidden rounded px-3 py-1.5 hover:bg-zinc-100 sm:inline-block dark:hover:bg-zinc-900"
+          >
+            關於
+          </Link>
           {user ? (
             <Link
               href="/dashboard"
