@@ -1,0 +1,16 @@
+import type { MetadataRoute } from "next";
+
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aibizhub.tw";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      {
+        userAgent: "*",
+        allow: ["/"],
+        disallow: ["/dashboard", "/api/", "/login"],
+      },
+    ],
+    sitemap: `${SITE}/sitemap.xml`,
+  };
+}
