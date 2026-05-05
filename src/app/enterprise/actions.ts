@@ -3,6 +3,7 @@
 import crypto from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { cookies } from "next/headers";
 
 export type InquiryState = {
   ok?: boolean;
@@ -22,6 +23,7 @@ type EnterpriseInquiryRecord = {
   bundle: string | null;
   userScale: string;
   message: string | null;
+  referralCode: string | null;
   createdAt: string;
 };
 
@@ -47,6 +49,7 @@ async function notifyTelegram(record: EnterpriseInquiryRecord): Promise<void> {
     record.bundle ? `📦 套裝：${record.bundle}` : null,
     record.products.length > 0 ? `🛠 工具：${record.products.join(", ")}` : null,
     record.message ? `📝 ${record.message.slice(0, 200)}` : null,
+    record.referralCode ? `🤝 介紹碼：${record.referralCode}` : null,
     `🆔 ${record.id}`,
   ]
     .filter(Boolean)
@@ -88,6 +91,8 @@ export async function submitEnterpriseInquiry(
     return { error: "請選擇產業與規模" };
   }
 
+  const referralCode = (await cookies()).get("aib_ref")?.value ?? null;
+
   const referenceId = "AIB-" + crypto.randomBytes(4).toString("hex").toUpperCase();
   const record: EnterpriseInquiryRecord = {
     id: referenceId,
@@ -101,6 +106,7 @@ export async function submitEnterpriseInquiry(
     bundle: bundle || null,
     userScale,
     message: message || null,
+    referralCode,
     createdAt: new Date().toISOString(),
   };
 
