@@ -10,7 +10,7 @@ const REF_COOKIE = "aib_ref";
 const REF_TTL_SECONDS = 60 * 60 * 24 * 90; // 90 days
 const REF_PATTERN = /^[A-Za-z0-9_-]{2,32}$/;
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const ref = req.nextUrl.searchParams.get("ref");
   if (!ref || !REF_PATTERN.test(ref)) {
     return NextResponse.next();

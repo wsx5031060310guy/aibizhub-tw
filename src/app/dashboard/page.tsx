@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth, signOut } from "@/auth";
 import { PRODUCTS } from "@/lib/products";
+import { getOrIssuePartnerCode } from "@/lib/partner";
 
 export const metadata = {
   title: "儀表板 | AIBizHub TW",
@@ -18,6 +19,12 @@ export default async function DashboardPage() {
   if (!session?.user) redirect("/login?callbackUrl=/dashboard");
 
   const isDemo = session.user.id?.startsWith("demo-");
+  const { code: partnerCode } = await getOrIssuePartnerCode({
+    userId: session.user.id ?? "anonymous",
+    email: session.user.email ?? null,
+  });
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aibizhub.tw";
+  const partnerLink = `${siteUrl}/?ref=${partnerCode}`;
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
@@ -100,20 +107,29 @@ export default async function DashboardPage() {
           </Link>
         </div>
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950">
-          <h3 className="font-semibold">介紹分潤</h3>
+          <h3 className="font-semibold">您的介紹分潤</h3>
           <p className="mt-2 text-sm text-zinc-500">
-            分享您的介紹連結，每筆訂閱獲得 20% 持續分潤。
+            分享下方連結，每筆訂閱獲得 20% 持續分潤（首年）。
           </p>
-          <p className="mt-3 break-all rounded bg-zinc-100 p-2 font-mono text-xs dark:bg-zinc-900">
-            {/* In Phase 2 we'll generate a stable code per user; for now show the
-                pattern so partners know how it'll work. */}
-            https://aibizhub.tw/?ref=您的代碼
-          </p>
+          <div className="mt-3 space-y-2">
+            <div>
+              <span className="text-xs text-zinc-500">介紹碼</span>
+              <p className="rounded bg-zinc-100 p-2 font-mono text-sm tracking-wider dark:bg-zinc-900">
+                {partnerCode}
+              </p>
+            </div>
+            <div>
+              <span className="text-xs text-zinc-500">完整連結（複製分享）</span>
+              <p className="break-all rounded bg-zinc-100 p-2 font-mono text-xs dark:bg-zinc-900">
+                {partnerLink}
+              </p>
+            </div>
+          </div>
           <Link
             href="/enterprise?bundle=enterprise"
             className="mt-4 inline-block text-sm text-blue-600 hover:underline"
           >
-            申請正式介紹碼 →
+            分潤條款說明 →
           </Link>
         </div>
       </section>
