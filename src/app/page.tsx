@@ -245,7 +245,7 @@ function EnterpriseCTA() {
             <h3 className="font-semibold">已合作 / 部署中</h3>
             <ul className="mt-4 space-y-3 text-sm text-zinc-300">
               <li>• <strong>citizen-law.com</strong> — 律師事務所網站，每日自動法律新知文章</li>
-              <li>• <strong>kidosim.com</strong> — 兒童教育網站，效能監控覆蓋</li>
+              <li>• <strong>kidosim.com</strong> — 海外旅遊 eSIM 購買站，藍新金流 + LINE 登入 + 自動部落格</li>
               <li>• <strong>個人投資機器人</strong> — 每日 09:00 自動執行 + Google Sheets 同步</li>
               <li>• <strong>QuoteKit / BeautySchedule</strong> — 已上線，企業可直接體驗</li>
             </ul>

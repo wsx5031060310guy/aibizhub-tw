@@ -103,8 +103,8 @@ export default function AboutPage() {
             />
             <Case
               title="kidosim.com"
-              role="兒童教育網站"
-              note="每日 Lighthouse 體檢覆蓋，效能異常自動推送至 Telegram。"
+              role="海外旅遊 eSIM 購買站"
+              note="藍新金流正式串接、世界移動 eSIM API、LINE 登入、Mailgun 信件、Admin 批次定價、自動部落格 cron。"
             />
             <Case
               title="個人投資機器人"
