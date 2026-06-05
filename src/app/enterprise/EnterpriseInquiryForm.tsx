@@ -44,6 +44,7 @@ export default function EnterpriseInquiryForm() {
         <label className="block text-sm font-medium">產業 / 業務類型</label>
         <select
           name="industry"
+          aria-label="產業 / 業務類型"
           className="mt-1 block w-full rounded border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900"
           defaultValue=""
           required
@@ -85,6 +86,7 @@ export default function EnterpriseInquiryForm() {
         <label className="block text-sm font-medium">套裝方案（選填）</label>
         <select
           name="bundle"
+          aria-label="套裝方案（選填）"
           defaultValue={presetBundle}
           className="mt-1 block w-full rounded border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900"
         >
@@ -101,6 +103,7 @@ export default function EnterpriseInquiryForm() {
         <label className="block text-sm font-medium">預估終端使用者數量</label>
         <select
           name="userScale"
+          aria-label="預估終端使用者數量"
           defaultValue=""
           className="mt-1 block w-full rounded border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900"
           required
