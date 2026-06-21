@@ -8,7 +8,6 @@ export default function HomePage() {
       <ProductGrid />
       <BundleSection />
       <EnterpriseCTA />
-      <Footer />
     </div>
   );
 }
@@ -256,30 +255,3 @@ function EnterpriseCTA() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800">
-      <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-zinc-500">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <span>© 2026 AIBizHub TW · 由 wsx5031060310guy 維護</span>
-          <div className="flex gap-4">
-            <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-100">
-              首頁
-            </Link>
-            <Link href="/enterprise" className="hover:text-zinc-900 dark:hover:text-zinc-100">
-              企業洽詢
-            </Link>
-            <a
-              href="https://github.com/wsx5031060310guy"
-              target="_blank"
-              rel="noopener"
-              className="hover:text-zinc-900 dark:hover:text-zinc-100"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}

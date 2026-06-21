@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PRODUCTS } from "@/lib/products";
+import { COMPANY } from "@/lib/company";
 
 export const metadata = {
   title: "關於 AIBizHub | 我們是誰",
@@ -139,6 +140,38 @@ export default function AboutPage() {
             目前在線產品：{PRODUCTS.filter((p) => p.status === "live").length} live ／
             {PRODUCTS.filter((p) => p.status === "beta").length} beta
           </p>
+        </div>
+      </section>
+
+      <section className="border-t border-zinc-200 dark:border-zinc-800">
+        <div className="mx-auto max-w-3xl px-6 py-16">
+          <h2 className="text-2xl font-bold">聯絡我們</h2>
+          <p className="mt-2 text-sm text-zinc-500">本服務由 {COMPANY.name}（{COMPANY.nameEn}）營運。</p>
+          <dl className="mt-6 space-y-3 text-sm">
+            <div className="flex gap-3">
+              <dt className="w-16 shrink-0 text-zinc-500">公司</dt>
+              <dd>{COMPANY.name}</dd>
+            </div>
+            <div className="flex gap-3">
+              <dt className="w-16 shrink-0 text-zinc-500">Email</dt>
+              <dd>
+                <a
+                  href={`mailto:${COMPANY.email}`}
+                  className="text-blue-600 hover:underline dark:text-blue-400"
+                >
+                  {COMPANY.email}
+                </a>
+              </dd>
+            </div>
+            <div className="flex gap-3">
+              <dt className="w-16 shrink-0 text-zinc-500">電話</dt>
+              <dd>{COMPANY.phone}</dd>
+            </div>
+            <div className="flex gap-3">
+              <dt className="w-16 shrink-0 text-zinc-500">地址</dt>
+              <dd>{COMPANY.address}</dd>
+            </div>
+          </dl>
         </div>
       </section>
     </main>
