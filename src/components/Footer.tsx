@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-4 text-xs text-zinc-400">
-          {COMPANY.phone} · {COMPANY.address}
+          {COMPANY.address}
         </div>
       </div>
     </footer>

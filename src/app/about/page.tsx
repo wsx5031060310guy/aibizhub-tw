@@ -164,10 +164,6 @@ export default function AboutPage() {
               </dd>
             </div>
             <div className="flex gap-3">
-              <dt className="w-16 shrink-0 text-zinc-500">電話</dt>
-              <dd>{COMPANY.phone}</dd>
-            </div>
-            <div className="flex gap-3">
               <dt className="w-16 shrink-0 text-zinc-500">地址</dt>
               <dd>{COMPANY.address}</dd>
             </div>
