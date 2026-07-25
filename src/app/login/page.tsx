@@ -17,7 +17,7 @@ export default async function LoginPage({
   if (session?.user) redirect(callbackUrl);
 
   const googleEnabled = !!(process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET);
-  const demoEnabled = process.env.AIBIZHUB_DEMO_LOGIN !== "0";
+  const demoEnabled = process.env.AIBIZHUB_DEMO_LOGIN === "1";
 
   return (
     <main className="mx-auto max-w-md px-6 py-16">

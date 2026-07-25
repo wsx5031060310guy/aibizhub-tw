@@ -10,7 +10,11 @@ import Credentials from "next-auth/providers/credentials";
  * The Credentials demo provider lets the founder show the platform to
  * partners before Google OAuth is fully provisioned. It accepts any email
  * + password === "demo" and creates a session — clearly marked as demo.
- * Disable via AIBIZHUB_DEMO_LOGIN=0 once Google OAuth is live.
+ *
+ * It is opt-in: set AIBIZHUB_DEMO_LOGIN=1 on the environment that should
+ * offer it. Anything else (including the variable being unset) leaves it
+ * off, so a deploy that forgets to configure it fails closed rather than
+ * shipping an open login.
  */
 const providers: NextAuthConfig["providers"] = [];
 
@@ -23,7 +27,7 @@ if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
   );
 }
 
-if (process.env.AIBIZHUB_DEMO_LOGIN !== "0") {
+if (process.env.AIBIZHUB_DEMO_LOGIN === "1") {
   providers.push(
     Credentials({
       id: "demo",

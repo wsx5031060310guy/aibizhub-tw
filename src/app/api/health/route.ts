@@ -37,7 +37,7 @@ export async function GET() {
     timestamp: new Date().toISOString(),
     auth: {
       googleConfigured: !!(process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET),
-      demoEnabled: process.env.AIBIZHUB_DEMO_LOGIN !== "0",
+      demoEnabled: process.env.AIBIZHUB_DEMO_LOGIN === "1",
       secretSet: !!process.env.AUTH_SECRET,
     },
     notifications: {
