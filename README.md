@@ -86,7 +86,7 @@ repo 無 `.env.example`。完整說明見 [安裝與維運](docs/OPERATIONS.md)�
 |---|---|
 | `AUTH_SECRET` | Auth.js JWT secret；也可作 partner code salt fallback |
 | `AUTH_GOOGLE_ID` / `AUTH_GOOGLE_SECRET` | 啟用 Google OAuth |
-| `AIBIZHUB_DEMO_LOGIN` | 設 `0` 關閉 Demo 登入 |
+| `AIBIZHUB_DEMO_LOGIN` | 設 `1` 開啟 Demo 登入（預設關閉） |
 | `AIBIZHUB_ADMIN_EMAILS` | admin email 白名單 |
 | `AIBIZHUB_NOTIFY_TG_TOKEN` / `AIBIZHUB_NOTIFY_TG_CHAT` | Telegram 洽詢通知 |
 | `AIBIZHUB_INQUIRY_API_KEYS` | `/api/inquiries` Bearer API keys |
